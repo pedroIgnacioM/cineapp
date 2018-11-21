@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Hola munod</title>
+<title>Hola mundo</title>
 </head>
 <body>		
-	<h1>Bienbenido a la primera pagina!</h1>
+	<h1>Bienvenido a la primera pagina!</h1>
 </body>
 </html>
