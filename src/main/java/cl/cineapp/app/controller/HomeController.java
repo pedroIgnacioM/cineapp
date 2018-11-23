@@ -47,7 +47,7 @@ public class HomeController {
 			pelicula2.setClasificacion("A");
 			pelicula2.setGenero("Infantil");
 			pelicula2.setFechaEstreno(formatter.parse("20-05-2017"));
-			
+			pelicula2.setImagen("bella.png");
 			
 			Pelicula pelicula3 = new Pelicula();
 			pelicula3.setId(3);
@@ -56,10 +56,22 @@ public class HomeController {
 			pelicula3.setClasificacion("B");
 			pelicula3.setGenero("Thriller");
 			pelicula3.setFechaEstreno(formatter.parse("28-05-2017"));
-
+			pelicula3.setImagen("contratiempo.png");
+			
+			Pelicula pelicula4 = new Pelicula();
+			pelicula4.setId(4);
+			pelicula4.setTitulo("Kong La Isla Calavera");
+			pelicula4.setDuracion(118);
+			pelicula4.setClasificacion("B");
+			pelicula4.setGenero("Acción y Aventura");
+			pelicula4.setFechaEstreno(formatter.parse("06-06-2017"));
+			pelicula4.setImagen("kong.png");
+			pelicula4.setEstatus("Inactiva");
+			
 			lista.add(pelicula1);
 			lista.add(pelicula2);
 			lista.add(pelicula3);
+			lista.add(pelicula4);
 			
 			return lista;
 			
