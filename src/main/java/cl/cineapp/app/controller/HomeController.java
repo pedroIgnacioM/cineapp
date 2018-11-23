@@ -1,5 +1,6 @@
 package cl.cineapp.app.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,21 +9,68 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import cl.cineapp.app.model.Pelicula;
+
 @Controller
 public class HomeController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String mostrarPrincipal(Model model)
 	{
-		List<String> peliculas = new LinkedList<>();
-		peliculas.add("Rapido y furiosos");
-		peliculas.add("El aro 2");
-		peliculas.add("Aliens");
+		List<Pelicula> peliculas = getLista();
+		
+		
 		
 		model.addAttribute("peliculas", peliculas);
 		
 		return "home";
 	}
+	
+	private List<Pelicula> getLista(){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		List<Pelicula> lista=null;
+		try {
+			lista = new LinkedList<>();
+			
+			Pelicula pelicula1 = new Pelicula();
+			pelicula1.setId(1);
+			pelicula1.setTitulo("Power Rangers");
+			pelicula1.setDuracion(120);
+			pelicula1.setClasificacion("B");
+			pelicula1.setGenero("Aventura");
+			pelicula1.setFechaEstreno(formatter.parse("02-05-2017"));
+			
+			Pelicula pelicula2 = new Pelicula();
+			pelicula2.setId(2);
+			pelicula2.setTitulo("La bella y la bestia");
+			pelicula2.setDuracion(132);
+			pelicula2.setClasificacion("A");
+			pelicula2.setGenero("Infantil");
+			pelicula2.setFechaEstreno(formatter.parse("20-05-2017"));
+			
+			
+			Pelicula pelicula3 = new Pelicula();
+			pelicula3.setId(3);
+			pelicula3.setTitulo("Contratiempo");
+			pelicula3.setDuracion(106);
+			pelicula3.setClasificacion("B");
+			pelicula3.setGenero("Thriller");
+			pelicula3.setFechaEstreno(formatter.parse("28-05-2017"));
+
+			lista.add(pelicula1);
+			lista.add(pelicula2);
+			lista.add(pelicula3);
+			
+			return lista;
+			
+		} catch (Exception e) {
+			System.out.println("Error: "+ e.getMessage());
+			return null;
+		}
+		
+		
+	}
+	
 	
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public String goHome() {
